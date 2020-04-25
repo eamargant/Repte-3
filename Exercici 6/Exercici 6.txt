@@ -1,0 +1,34 @@
+// Creem un array amb 277 flocs de neu.
+neu[] gn  = new neu[277];
+
+// Creem una mosca que seguira el punter
+Mosca m = new Mosca();
+
+void setup(){
+  size(900,600);
+  // Ajustem el frame rate a 60fps.
+  frameRate(60);
+  // Instanciem tots els flocs de neu
+  for(int i = 0; i < gn.length; i++) {
+    gn[i] = new neu();
+  }
+  // Instànciem la mosca
+  m = new Mosca();
+}
+
+void draw(){
+  //posem el background de color negre per que s'apreciin mes el flocs de neu
+  background(0);  
+  //amb un bucle intanciem tots els flocs de neu a cada frame
+  for(int i = 0; i < gn.length; i++) {
+    gn[i].update();
+    gn[i].checkEdges();
+    gn[i].display();
+  }
+  //instanciem la mosca i fem que vagi seguint el mouse
+  m.update();
+  m.display();  
+}
+
+//no m'ha vingut al cap cap mes idea per fer alguna altre cosa amb el que he fet 
+//en aquest repte.

@@ -1,0 +1,16 @@
+
+Mover objecte;
+
+void setup() {
+
+  size(650,500);
+  // Instànciem l'objecte Mover amb el constructor per defecte que hem creat.
+  objecte = new Mover();
+}
+
+void draw() {
+  background(255);
+  objecte.update();
+  objecte.display();
+ //pintem el fons de blanc,  pintem el cercle i el fem moure, aixo a cada freame
+}

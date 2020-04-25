@@ -1,0 +1,61 @@
+class Mover {
+  PVector location;
+  PVector velocity;
+  PVector acceleration;
+  float maxSpeed;
+  int mida;
+  //Creem aquest contructor per defecte
+  Mover() {
+    location = new PVector(random(width),random(height));
+    velocity = new PVector(random(-2,2),random(-2,2));
+    acceleration = new PVector(0.05,0.05);
+    maxSpeed = 7; 
+    mida = 77;
+  }
+  
+  void update() {
+    // Creem els PVectors que contindran l'ubicació del mouse 
+    // i la direcció
+    PVector mouse = new PVector(mouseX,mouseY);
+    PVector dir = PVector.sub(mouse,location);
+    // Normalitzem la direcció.
+    dir.normalize();
+    dir.mult(0.5);
+    //Apliquem l'acceleració i movem l'objecte.
+    acceleration = dir;
+    velocity.add(acceleration);
+    velocity.limit(maxSpeed);
+    location.add(velocity);
+  }
+  
+  void display() {
+    stroke(0);
+    fill(175);
+    ellipse(location.x,location.y,mida,mida);
+  }
+  
+  void checkEdges() {
+    if(location.x > width) {
+      location.x = 0;
+    }
+    else if(location.x < 0) {
+      location.x = width;
+    }
+    
+    if(location.y > height) {
+      location.y = 0;
+    }
+    else if(location.y < 0) {
+      location.y = height;
+    }
+  }
+  
+  // Degut al nou constructor, podem crear dos metodes set, per posar les velocitats 
+  // i les acceleracions aleatories; Es el exercici 3
+  void setVelocity(PVector v) {
+    velocity = v;
+  }
+  void setAcceleration(PVector a) {
+    acceleration = a;
+  }
+}

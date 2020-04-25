@@ -1,0 +1,5 @@
+La classe mover que hi ha adjuntada amb el document, es mou per la escena gracies a dos variables 
+PVector(la seva posicio i la velocitat), les cuals son generades de manera random.
+Quan el volem cridar a la escena, haurem de executar el metode display(), el cual ens dibuixara un cercle gris amb moviment autonom
+Quan el metode update() s'executi, la velocitat es sumara a la posicio actual del cercle; finalment el metode checkEdges()
+controla els eixos Y e X.

@@ -1,0 +1,25 @@
+// Creem un objecte Mover i dos PVectors.
+Mover cercle;
+PVector velocity, accerelation;
+
+void setup() {
+  size(650,400);
+  // Inicialitzem els PVectors amb uns valors aleatoris.
+  velocity = new PVector(random(-1,1),random(-1,1));
+  accerelation = new PVector(random(-1,1),random(-1,1));
+  // Instanciem el cercle que és de tipus Mover.
+  cercle = new Mover(new PVector(width/2,height/2), velocity, accerelation, 70);
+}
+
+void draw() {
+  background(255);
+  cercle.update();
+  cercle.checkEdges();
+  cercle.display();
+  //Calculem una velocitat i acceleració aleatoira.
+  velocity.x = random(-10,10);   velocity.y = random(-10,10);
+  accerelation.x = random(-10,10);   accerelation.y = random(-10,10);
+  // Donem al cercle la nova velocitat i acceleracó.
+  cercle.setVelocity(velocity);
+  cercle.setAcceleration(accerelation);
+}

@@ -1,0 +1,22 @@
+// Creem un array de objectes de tipus Mover.
+Mover[] mosques = new Mover[60];
+
+void setup() {
+  size(650,500);
+  // Creem cada objecte Mover amb el constructor per defecte amb un bucle for.
+  for (int i = 0; i < mosques.length; i++) {
+    mosques[i] = new Mover();
+  }
+}
+
+void draw() {
+  background(255);
+  // Cridem els mètodes per anar movent tots els objecte i dibuixar-los a través d'un for.
+  for (int i = 0; i < mosques.length; i++) {
+     mosques[i].update();
+     mosques[i].display();
+  }
+ 
+}
+//El funcionament es el mateix que el de l'exercici 4, pero simplement,
+// al ser tants objectes, la forma mes eficient es controlar-ho tot amb bucles.

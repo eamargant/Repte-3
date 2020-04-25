@@ -1,0 +1,37 @@
+// Aquesta classe té una ubicació inicial random i una velocitat inicial de 0. 
+//Després es dona una acceleració en el eix de les Y bastant infima per que caigui bastant lent.
+class neu {
+  PVector ubicacio;
+  PVector velocitat;
+  neu() {
+    ubicacio = new PVector(random(width),random(height));
+    velocitat = new PVector(0,0);
+  }
+  void display() {
+    stroke(255);
+    fill(255);
+    ellipse(ubicacio.x,ubicacio.y,4,10);
+  }
+  
+  void update() {
+    ubicacio.add(velocitat);
+    velocitat.add(new PVector(0,1));
+    velocitat.limit(2);
+  }
+  
+  void checkEdges() {
+    if(ubicacio.x > width) {
+      ubicacio.x = 0;
+    }
+    else if(ubicacio.x < 0) {
+      ubicacio.x = width;
+    }
+    
+    if(ubicacio.y > height) {
+      ubicacio.y = 0;
+    }
+    else if(ubicacio.y < 0) {
+      ubicacio.y = height;
+    }
+  }
+}
